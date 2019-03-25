@@ -1,0 +1,161 @@
+@import "./src/colors";
+@import "./src/fonts";
+@import "./src/vars";
+
+h1, h2, h3, h4{
+font-family: $heading-font;
+}
+
+.ant-drawer-title{
+  font-size:1.3rem;
+  font-family: $heading-font;
+  margin:0 auto;
+  max-width:calc(#{$reading-width} + 75px);
+}
+
+.ant-drawer-body{
+  padding-top:68px;
+}
+
+.ant-drawer-header{
+  position:absolute;
+  width:100%;
+  z-index:1000;
+}
+
+.module-content{
+  margin:0 auto 100px auto;
+  max-width:calc(#{$reading-width} + 150px);;
+  font-family: $body-font;
+  font-weight:400;
+  font-size:$text-font-size;
+  line-height: $text-line-height;
+  color:$text;
+  padding:0 50px;
+}
+
+.nav{
+  position: fixed;
+  font-size:200%;
+  top:50%;
+}
+
+.nav-left{
+  left:calc(50vw - 650px/2 - 70px);
+}
+
+.nav-right{
+  right:calc(50vw - 650px/2 - 70px);
+}
+
+.fa-icon{
+  background-color: #fff;
+  width:1.5em;
+  height:1.5em;
+  border-radius:30px;
+  text-align: center;
+  line-height:1.5em;
+
+  &:hover{
+    background-color: #efefef;
+  }
+}
+
+.ant-tabs{
+  margin-bottom:30px;
+.ant-tabs-nav{
+  .ant-tabs-tab{
+    font-family:$heading-font;
+    margin:0 12px 0 0;
+    padding:12px 32px;
+    &:hover{
+      color:$primary;
+    }
+  
+  }
+  .ant-tabs-tab-active{
+    color:$primary;
+    background-color:$light-background;
+  }
+  .ant-tabs-ink-bar{
+    background-color:$primary;
+  } 
+
+}
+}
+
+.ant-carousel{
+   margin-bottom:50px;
+   .slick-slider{
+     .slick-slide{
+       background:$light-background;
+     }
+    .slick-dots{
+      bottom:-8px;
+      li{
+        button{
+          background:$primary;
+          height:20px;
+          width:20px;
+          border-radius:20px;
+        }
+      }
+    }
+
+  }
+ }
+
+.ant-collapse{
+   margin-bottom:30px;
+   background-color:$light-background;
+
+   .ant-collapse-header{
+      font-family:$heading-font;
+   }
+}
+
+.ant-tabs, .ant-tabs-nav-container, .ant-collapse{
+  font-size:$text-font-size;
+  line-height:$text-line-height;
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate(50%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+.page-animate {
+    animation-duration: 0.25s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+    animation-name: fadeOutLeft;
+  }
+
+.page-animate2 {
+    animation-duration: 0.25s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+    animation-name: fadeInRight;
+  }
+
