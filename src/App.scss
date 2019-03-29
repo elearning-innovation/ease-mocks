@@ -8,6 +8,9 @@ h2{font-size:$heading2-font-size}
 h3{font-size:$heading3-font-size}
 h4{font-size:$heading4-font-size}
 
+li{margin-bottom:12px;}
+
+
 .ease-app{
   padding:70px 0 80px 0;
   font-family:$body-font;
@@ -19,7 +22,7 @@ h4{font-size:$heading4-font-size}
     position: fixed;
     top: 0;
     width:100%;
-    height:50px;
+    height:$header-height;
     background-color:$heading;
     padding:6px 20px;
     z-index: 100;
@@ -41,22 +44,22 @@ h4{font-size:$heading4-font-size}
       border:1px solid $border;
       border-radius:$radius;
       padding:20px;
-      margin-bottom:20px;
+      margin-bottom:$element-spacing;
     }
 
     .ease-activity{
       border-left:10px solid $primary;
       padding:10px 20px 20px;
-      border-radius:5px 0 0 5px;
+      border-radius:$radius 0 0 $radius;
       position:relative;
-      margin-bottom:30px;
+      margin-bottom:$element-spacing;
 
       .fa-icon-activity{
         position:absolute;
         top:20px;
         left:-50px;
         font-size:130%;
-        border-radius:7px 0 0 7px;
+        border-radius:$radius 0 0 $radius;
         background-color:$primary;
         padding:8px 0;
         color:#fff;
@@ -96,18 +99,17 @@ h4{font-size:$heading4-font-size}
     grid-template-columns: $grid;
     grid-column-gap: $grid-space;
     grid-row-gap: $grid-space;
-    margin-top:40px;
 
-   .large-module{
-     grid-column:1/span 2;
+    .large-module{
+      grid-column:1/span 2;
 
-     .respnsive-image{
-      height:220px;
-     }
-   }
+      .respnsive-image{
+        height:$module-image-height;
+      }
+    }
 
     .ease-module{
-      border-radius:8px;
+      border-radius:$radius;
       position:relative;
       background-color:$light-background;
    
@@ -157,55 +159,56 @@ h4{font-size:$heading4-font-size}
 
 }
 
+.ant-drawer{
 
-li{
-  margin-bottom:12px;
-}
-
-.ant-drawer-title{
-  font-size:$heading2-font-size;
-  font-family: $heading-font;
-}
-
-.ant-drawer-wrapper-body{
-  overflow:auto;
-  height:100%;
-}
-
-.ease-drawer .ant-drawer-content-wrapper{
-  width:85%!important;
-}
-
-.ease-drawer2{
-    transform:none!important;
-}
-
-.ease-drawer2 .ant-drawer-content-wrapper{
-  top:50px;
-  height:100%!important;
-}
-.ease-drawer3 .ant-drawer-content-wrapper{
-  top:106px;
-  box-shadow:none!important;
-
-  .ant-drawer-content{
-    background-color:$dark-background;
-    color:#fff;
-    font-size:90%;
+  .ant-drawer-title{
+    font-size:$heading2-font-size;
+    font-family: $heading-font;
   }
 
-  .ant-drawer-body{
-    padding-top:14px;
+  .ant-drawer-wrapper-body{
+    overflow:auto;
+    height:100%;
+  }
 
-    ul{
-      list-style-type:none;
-      padding:0;
-      margin-top:20px;
+  &.ease-drawer .ant-drawer-content-wrapper{
+    width:85%!important;
+  }
+
+  &.ease-drawer2{
+    transform:none!important;
+
+    .ant-drawer-content-wrapper{
+      top:50px;
+      height:100%!important;
     }
 
   }
-}
 
+  &.ease-drawer3{ 
+
+    .ant-drawer-content-wrapper{
+      top:106px;
+      box-shadow:none!important;
+
+      .ant-drawer-content{
+        background-color:$dark-background;
+        color:#fff;
+        font-size:90%;
+      }
+
+      .ant-drawer-body{
+        padding-top:14px;
+
+        ul{
+          list-style-type:none;
+          padding:0;
+          margin-top:20px;
+        }
+      }
+    }
+  }
+}
 
 .ant-modal-wrap{
   top:50px;

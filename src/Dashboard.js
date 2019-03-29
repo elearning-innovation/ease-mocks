@@ -10,9 +10,10 @@ library.add(faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCi
 class Dashboard extends Component {
   render() {
     return (
-     <div class="drawer-content">
-     	<h3>Course 1</h3>
-     	<div className="course-activities">
+      <div class="drawer-content">
+     	  <h3>Course 1</h3>
+     	  <div className="course-activities">
+          
           <div className="ease-activity">
             <div className="fa-icon-activity"><FontAwesomeIcon icon="pencil-ruler" /></div> 
             <h4>The First Quiz</h4>
@@ -22,6 +23,7 @@ class Dashboard extends Component {
               <span>2 attempts</span>
             </div>
           </div>
+          
           <div className="ease-activity">
             <div className="fa-icon-activity"><FontAwesomeIcon icon="pencil-ruler" /></div> 
             <h4>The Second Quiz</h4>
@@ -30,10 +32,11 @@ class Dashboard extends Component {
               <span>No attempts</span>
             </div>
           </div>
-         </div>
+        
+        </div>
 
-     	<h3>Course 2</h3>
-     	<div className="course-activities">
+     	  <h3>Course 2</h3>
+     	  <div className="course-activities">
 
           <div className="ease-activity">
             <div className="fa-icon-activity"><FontAwesomeIcon icon="pencil-ruler" /></div> 
@@ -43,11 +46,12 @@ class Dashboard extends Component {
               <span>No attempts</span>
             </div>
           </div>
-         </div>
+        </div>
 
-     	<h3>Course 3</h3>
+     	  <h3>Course 3</h3>
 
-     	<div className="course-activities">
+     	  <div className="course-activities">
+          
           <div className="ease-activity">
             <div className="fa-icon-activity"><FontAwesomeIcon icon="pencil-ruler" /></div> 
             <h4>Even Anotbher One</h4>
@@ -56,9 +60,10 @@ class Dashboard extends Component {
               <span>No attempts</span>
             </div>
           </div>
-       </div>
+        </div>
+     
      </div>
-     )
+    )
   }
 }
 

@@ -3,7 +3,7 @@
 @import "./src/vars";
 
 h1, h2, h3, h4{
-font-family: $heading-font;
+  font-family: $heading-font;
 }
 
 .ant-drawer-title{
@@ -41,11 +41,11 @@ font-family: $heading-font;
 }
 
 .nav-left{
-  left:calc(50vw - 650px/2 - 70px);
+  left:10px;
 }
 
 .nav-right{
-  right:calc(50vw - 650px/2 - 70px);
+  right:10px;
 }
 
 .fa-icon{
@@ -63,36 +63,46 @@ font-family: $heading-font;
 
 .ant-tabs{
   margin-bottom:30px;
-.ant-tabs-nav{
-  .ant-tabs-tab{
-    font-family:$heading-font;
-    margin:0 12px 0 0;
-    padding:12px 32px;
-    &:hover{
-      color:$primary;
+  
+  .ant-tabs-nav{
+  
+    .ant-tabs-tab{
+      font-family:$heading-font;
+      margin:0 12px 0 0;
+      padding:12px 32px;
+    
+      &:hover{
+        color:$primary;
+      }
+  
     }
   
-  }
-  .ant-tabs-tab-active{
-    color:$primary;
-    background-color:$light-background;
-  }
-  .ant-tabs-ink-bar{
-    background-color:$primary;
-  } 
+    .ant-tabs-tab-active{
+      color:$primary;
+      background-color:$light-background;
+    }
+  
+    .ant-tabs-ink-bar{
+      background-color:$primary;
+    } 
 
-}
+  }
 }
 
 .ant-carousel{
-   margin-bottom:50px;
-   .slick-slider{
-     .slick-slide{
-       background:$light-background;
-     }
+  margin-bottom:50px;
+  
+  .slick-slider{
+    
+    .slick-slide{
+      background:$light-background;
+    }
+    
     .slick-dots{
       bottom:-8px;
+      
       li{
+        
         button{
           background:$primary;
           height:20px;
@@ -101,17 +111,16 @@ font-family: $heading-font;
         }
       }
     }
-
   }
- }
+}
 
 .ant-collapse{
-   margin-bottom:30px;
-   background-color:$light-background;
+  margin-bottom:30px;
+  background-color:$light-background;
 
-   .ant-collapse-header{
-      font-family:$heading-font;
-   }
+  .ant-collapse-header{
+    font-family:$heading-font;
+  }
 }
 
 .ant-tabs, .ant-tabs-nav-container, .ant-collapse{
@@ -143,19 +152,17 @@ font-family: $heading-font;
   }
 }
 
-
-
 .page-animate {
-    animation-duration: 0.25s;
-    transition-timing-function: ease-in;
-    animation-fill-mode: both;
-    animation-name: fadeOutLeft;
-  }
+  animation-duration: 0.25s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-name: fadeOutLeft;
+}
 
 .page-animate2 {
-    animation-duration: 0.25s;
-    transition-timing-function: ease-in;
-    animation-fill-mode: both;
-    animation-name: fadeInRight;
-  }
+  animation-duration: 0.25s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-name: fadeInRight;
+}
 

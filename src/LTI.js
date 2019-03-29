@@ -10,9 +10,8 @@ library.add(faAngleLeft, faAngleRight)
 class LTI extends Component {
   render() {
     return(
-<iframe src="https://labondemand.com/VirtualizationClient/622bb2c5-21e7-4332-a578-68c09e591995?rc=10"></iframe>
-
-    	)
+      <iframe src="https://labondemand.com/VirtualizationClient/622bb2c5-21e7-4332-a578-68c09e591995?rc=10"></iframe>
+    )
   }
 }
 
