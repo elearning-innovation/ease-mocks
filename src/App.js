@@ -122,73 +122,12 @@ class App extends Component {
               <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Extend the profit maximization model to encompass other objectives of some healthcare producers</li>
               <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Consider the efficiency of the profit maximization model and the profit-maximizing price-quantity-quality combination</li>
               <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Contrast outcomes for a competitive market with outcomes of a market with few buyers or few sellers</li>
-              <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Analyze healthcare product markets where firms have substantial market power through knowledge of factors that permit firms to amass this power</li>
-              <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Predict outcomes for consolidated healthcare markets</li>
             </ul>
           </div>
 
           <div className="ease-intro">
             <h3>Course Introduction</h3>
-            <p>In theory, maximizing the difference between the value of the health services produced and the cost of producing them will improve efficiency for the provider and for the health system. Profit is the difference between revenue and cost.  Although many health services providers are not-for-profit organizations, they still must attend to revenues and costs.  In addition to discussing the goals that you optimize as a manager, we will consider the objectives that other healthcare organizations appear to be optimizing and what this means for health policy goals.</p>
-            <p>Organizations with market power have more control over their destiny than organizations participating in a competitive market. We will also examine how market power is gained, used, and lost in health services markets.</p>
-            
-            <div className="ease-activity">
-              <div className="fa-icon-activity"><FontAwesomeIcon icon="check-square" /></div> 
-              <div className="ease-activity-info">
-                <span>10 pts</span>
-                <span>4 questions</span>
-                <span>Umlimited attempts</span>
-                <span>0 attempts taken</span>
-              </div>
-              <h4>Survey</h4>
-              <p>Take this survey to help us understand how you best learn</p>
-              <button>Start</button>
-            </div>
-            
-            <div className="ease-activity">
-              <div className="fa-icon-activity"><FontAwesomeIcon icon="pencil-ruler" /></div> 
-              <div className="ease-activity-info">
-                <span>10 pts</span>
-                <span>3 questions</span>
-                <span>Umlimited attempts</span>
-                <span>0 attempts taken</span>
-                <span>High Score Method</span>
-              </div>
-              <h4>Quiz</h4>
-              <p>Take a moment to answer the following questions. Try to work it out before clicking on the "Answer" tab.</p>
-              <button>Start</button>
-            </div>
-            
-            <div className="ease-activity">
-              <div className="fa-icon-activity"><FontAwesomeIcon icon="play-circle" /></div> 
-              <h4>Media</h4>
-              <p>Welcome to your first day on the job! In this activity, you will learn about common roles within a corporate security team and typical responsibilities of each role.</p>
-              <button onClick={this.showModal2}>Open</button>
-            </div>
-            
-            <div className="ease-activity">
-              <div className="fa-icon-activity"><FontAwesomeIcon icon="cloud" /></div> 
-              <div className="ease-activity-info">
-                <span>10 pts</span>
-              </div>
-              <h4>LTI</h4>
-              <p>In this learning lab you will use the social engineering toolkit to create a fake website on your test station for Google or Twitter, and test it to capture a login.</p>
-              <p>The lab environment will open in a new tab. Click OK [in the dialogue box] and follow the prompts to complete each task.</p>
-              <button  onClick={this.showModal3}>Open</button>
-            </div>
-            
-            <div className="ease-activity">
-              <div className="fa-icon-activity"><FontAwesomeIcon icon="file-upload" /></div> 
-              <div className="ease-activity-info">
-                <span>100 pts</span>
-                <span>Umlimited attempts</span>
-                <span>0 attempts taken</span>
-                <span>High Score Method</span>
-              </div>
-              <h4>File Upload</h4>
-              <p>Upload your assignment here.</p>
-              <button>Submit</button>
-            </div>
+            <p>In theory, maximizing the difference between the value of the health services produced and the cost of producing them will improve efficiency for the provider and for the health system. Profit is the difference between revenue and cost.</p>
           </div>
 
           <div className="ease-modules">
@@ -197,7 +136,7 @@ class App extends Component {
               <div className="ease-module-text">
               <h4>New Module With Very Long and Complicated Title for this Page</h4>
               </div>
-              <div className="ease-status"></div>
+              <div className="ease-status status100"></div>
             </div>
             
             <div className="ease-module" onClick={this.showDrawer2}>
@@ -205,7 +144,7 @@ class App extends Component {
               <div className="ease-module-text">
               <h4>New Module 2</h4>
               </div>
-              <div className="ease-status"></div>
+              <div className="ease-status status75"></div>
             </div>
             
             <div className="ease-module" onClick={this.showDrawer2}>
@@ -213,21 +152,21 @@ class App extends Component {
               <div className="ease-module-text">
               <h4>New Module 3</h4>
               </div>
-              <div className="ease-status"></div>
+              <div className="ease-status status100"></div>
             </div>
             
             <div className="ease-module" onClick={this.showDrawer2}>
               <div className="ease-module-text">
                 <h4>New Module 4</h4>
               </div>
-              <div className="ease-status"></div>
+              <div className="ease-status status25"></div>
             </div>
             
             <div className="ease-module" onClick={this.showDrawer2}>
               <div className="ease-module-text">
                 <h4>New Module 5</h4>
               </div>
-              <div className="ease-status"></div>
+              <div className="ease-status status25"></div>
             </div>
             
             <div className="ease-module" onClick={this.showDrawer2}>

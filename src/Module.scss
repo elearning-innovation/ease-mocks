@@ -1,6 +1,6 @@
-@import "./src/colors";
-@import "./src/fonts";
-@import "./src/vars";
+@import "./colors";
+@import "./fonts";
+@import "./vars";
 
 h1, h2, h3, h4{
   font-family: $heading-font;
@@ -9,9 +9,13 @@ h1, h2, h3, h4{
 .ant-drawer-title{
   font-size:1.3rem;
   font-family: $heading-font;
-  margin:0 auto;
   max-width:calc(#{$reading-width} + 75px);
 }
+
+.ease-drawer2 .ant-drawer-title{
+   margin:0 auto;
+} 
+
 
 .ant-drawer-body{
   padding-top:68px;
@@ -165,4 +169,22 @@ h1, h2, h3, h4{
   animation-fill-mode: both;
   animation-name: fadeInRight;
 }
+
+
+  button{
+    font-family:$sans-font;
+    background-color:$secondary;
+    border:0;
+    padding:8px 20px;
+    color:#fff;
+    border-radius:4px;
+    font-size:1rem;
+  }
+
+.module-content .ease-right{
+    float:right;
+    margin-left:12px;
+    max-width:250px;
+  }
+
 
