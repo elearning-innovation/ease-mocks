@@ -10,8 +10,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt } from '@fortawesome/free-solid-svg-icons'
 import logo from './logo.svg';
-import module1 from './img/earth.jpg';
-import module2 from './img/ecosystem.jpg';
+import module1 from './img/shutterstock_783058903-360.jpg';
+import module2 from './img/shutterstock_731631664-360px.jpg';
 import module3 from './img/shutterstock_573530671-small.jpg';
 import module4 from './img/shutterstock_429812950-360px.jpg';
 import module5 from './img/shutterstock_307370969-360px.jpg';
@@ -50,6 +50,8 @@ class App extends Component {
     element2[0].classList.add("nav-open");
     var element3=document.getElementsByClassName("ant-drawer-title");
     element3[0].classList.add("nav-open");
+    var element4=document.getElementsByClassName("ant-drawer");
+    element4[0].classList.add("nav-open");
 
 
     this.setState({
@@ -140,6 +142,8 @@ class App extends Component {
     element2[0].classList.remove("nav-open");
     var element3=document.getElementsByClassName("ant-drawer-title");
     element3[0].classList.remove("nav-open");
+    var element4=document.getElementsByClassName("ant-drawer");
+    element4[0].classList.remove("nav-open");
 
   };
 
@@ -268,7 +272,7 @@ class App extends Component {
 
             <Drawer
               placement="left"
-              closable={true}
+              closable={false}
               width={200}
               onClose={this.onClose3}
               visible={this.state.drawer3visible}

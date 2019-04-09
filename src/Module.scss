@@ -6,6 +6,12 @@ h1, h2, h3, h4{
   font-family: $heading-font;
 }
 
+.ant-drawer{
+  &.nav-open{
+  transform: translateY(0)!important;
+  }
+}
+
 .ant-drawer-title{
   font-size:1.3rem;
   font-family: $heading-font;
