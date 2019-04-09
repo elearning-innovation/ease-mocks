@@ -106,10 +106,10 @@ class Module extends Component {
 
   render() {
     return(
-      <div class="module">
+      <div className="module">
         <div className="nav-arrows">
-          <div className="fa-icon nav nav-right"><FontAwesomeIcon icon="angle-right" onClick={this.nextPage} /></div>
-          <div className="fa-icon nav nav-left"><FontAwesomeIcon icon="angle-left" onClick={this.prevPage} /></div>
+          <div className="fa-icon nav nav-right" onClick={this.nextPage}><FontAwesomeIcon icon="angle-right"  /></div>
+          <div className="fa-icon nav nav-left" id="nav-left" onClick={this.prevPage}><FontAwesomeIcon icon="angle-left" /></div>
         </div>
     	  
         <div className="module-content" id="reading">

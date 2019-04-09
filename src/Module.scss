@@ -10,10 +10,18 @@ h1, h2, h3, h4{
   font-size:1.3rem;
   font-family: $heading-font;
   max-width:calc(#{$reading-width} + 75px);
+
 }
 
 .ease-drawer2 .ant-drawer-title{
    margin:0 auto;
+    transition: all .3s ease-in-out;
+
+  &.nav-open{
+    transition: all .3s ease-in-out;
+  margin-left:200px;
+  }
+
 } 
 
 
@@ -26,6 +34,7 @@ h1, h2, h3, h4{
   width:100%;
   z-index:1000;
 }
+
 
 .module-content{
   margin:0 auto 100px auto;
@@ -41,22 +50,37 @@ h1, h2, h3, h4{
 .nav{
   position: fixed;
   font-size:200%;
-  top:50%;
+  top:72px;
 }
 
 .nav-left{
-  left:10px;
+  left:0;
+    transition: all .3s ease-in-out;
+    &.nav-open{
+    left:200px;
+    transition: all .3s ease-in-out;
+  }
 }
 
+
+.nav-left svg{
+  left:15px;
+}
 .nav-right{
-  right:10px;
+  right:0;
+}
+.nav-right svg{
+  right:15px;
+}
+.nav svg{
+  position:absolute;
+  top:50%;
 }
 
 .fa-icon{
   background-color: #fff;
-  width:1.5em;
-  height:1.5em;
-  border-radius:30px;
+  width:50px;
+  height:100%;
   text-align: center;
   line-height:1.5em;
 
@@ -94,16 +118,21 @@ h1, h2, h3, h4{
 }
 
 .ant-carousel{
-  margin-bottom:50px;
+  margin-top:50px;
   
   .slick-slider{
     
     .slick-slide{
       background:$light-background;
+      line-height:$text-line-height;
+      text-align:left;
+      font-size:$text-font-size;
+      padding:20px;
+      height:auto;
     }
     
     .slick-dots{
-      bottom:-8px;
+      top:-30px;
       
       li{
         
@@ -144,6 +173,19 @@ h1, h2, h3, h4{
   }
 }
 
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
 @keyframes fadeInRight {
   0% {
     opacity: 0;
@@ -156,19 +198,47 @@ h1, h2, h3, h4{
   }
 }
 
-.page-animate {
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(50%, 0);
+  }
+}
+
+
+.next-animate {
   animation-duration: 0.25s;
   transition-timing-function: ease-in;
   animation-fill-mode: both;
   animation-name: fadeOutLeft;
 }
 
-.page-animate2 {
+.next-animate2 {
   animation-duration: 0.25s;
   transition-timing-function: ease-in;
   animation-fill-mode: both;
   animation-name: fadeInRight;
 }
+
+.prev-animate {
+  animation-duration: 0.25s;
+  transition-timing-function: ease-out;
+  animation-fill-mode: both;
+  animation-name: fadeInLeft;
+}
+
+.prev-animate2 {
+  animation-duration: 0.25s;
+  transition-timing-function: ease-out;
+  animation-fill-mode: both;
+  animation-name: fadeOutRight;
+}
+
 
 
   button{
@@ -182,9 +252,76 @@ h1, h2, h3, h4{
   }
 
 .module-content .ease-right{
+    height:0;
+    overflow:hidden;
     float:right;
     margin-left:12px;
-    max-width:250px;
+    max-width:600px;
+    position:relative;
+    top:-13px;
+    transition: all .3s ease-in-out;
+    background-color:$light-background;
+    padding:0;
+
+    &.showme{
+      transition: all .3s ease-in-out;
+      height:auto;
+      border-radius:$radius;
+      padding:20px;
+      margin-bottom:$element-spacing;
+
   }
 
+  }
 
+.vid-embed{
+  display: block; 
+  width: 560px; 
+  height:330px;
+  margin: 0 auto;
+}
+
+#page1{
+  display:block;
+  &.showpage{display:block;}
+  &.hidepage{display:none;}
+}
+#page2{
+  display:none;
+  &.showpage{display:block;}
+  &.hidepage{display:none;}
+}
+#page3{
+  display:none;
+  &.showpage{display:block;}
+  &.hidepage{display:none;}
+}
+#page4{
+  display:none;
+  &.showpage{display:block;}
+  &.hidepage{display:none;}
+}
+#page5{
+  display:none;
+  &.showpage{display:block;}
+  &.hidepage{display:none;}
+}
+#page6{
+  display:none;
+  &.showpage{display:block;}
+  &.hidepage{display:none;}
+}
+#page7{
+  display:none;
+  &.showpage{display:block;}
+  &.hidepage{display:none;}
+}
+
+.leftimg{
+  float:left;
+  padding:0 20px 20px 0;
+}
+.rightimg{
+  float:right;
+  padding:0 0 20px 20px;
+}
