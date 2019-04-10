@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { Drawer, Modal, Button, Tooltip } from 'antd';
+import { Drawer, Modal, Button, Tooltip, Form, Input } from 'antd';
 import "antd/dist/antd.css";
 import Dashboard from './Dashboard';
 import Module1 from './Module1';
 import Media from './Media';
+import Styles from './Styles';
 import LTI from './LTI';
 import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush} from '@fortawesome/free-solid-svg-icons'
 import logo from './logo.svg';
 import module1 from './img/shutterstock_783058903-360.jpg';
 import module2 from './img/shutterstock_731631664-360px.jpg';
@@ -17,7 +18,7 @@ import module4 from './img/shutterstock_429812950-360px.jpg';
 import module5 from './img/shutterstock_307370969-360px.jpg';
 import module6 from './img/857499small.jpg';
 
-library.add(faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt)
+library.add(faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush)
 
 class App extends Component {
 
@@ -28,7 +29,8 @@ class App extends Component {
     modal1visible: false, 
     modal2visible: false, 
     modal3visible: false, 
-    objectives: false,
+    modal4visible: false, 
+    objectives: "start",
   }
 
   showDrawer1 = () => {
@@ -65,7 +67,9 @@ class App extends Component {
     var growicon=document.getElementsByClassName("max-icon");
     var shrinkicon=document.getElementsByClassName("min-icon");
     var menucontrol=document.getElementById("menu-control");
+    var navleft=document.getElementsByClassName("ease-drawer3");
     element1[0].classList.add("shrink");
+    navleft[0].classList.add("shrink");
     shrinkicon[0].classList.add("hideme");
     menucontrol.classList.add("hideme");
     growicon[0].classList.add("showme");
@@ -76,7 +80,9 @@ class App extends Component {
     var shrinkicon=document.getElementsByClassName("min-icon");
     var growicon=document.getElementsByClassName("max-icon");
     var menucontrol=document.getElementById("menu-control");
+    var navleft=document.getElementsByClassName("ease-drawer3");
     element1[0].classList.remove("shrink");
+    navleft[0].classList.remove("shrink");
     shrinkicon[0].classList.remove("hideme");
     menucontrol.classList.remove("hideme");
     growicon[0].classList.remove("showme");
@@ -84,15 +90,23 @@ class App extends Component {
   }
 
   showObjectives = () => {
-    if(this.state.objectives){
-      var objectives=document.getElementsByClassName("ease-right");
-      objectives[0].classList.remove("showme");
+    if(this.state.objectives == "start"){
+      var objectives=document.getElementsByClassName("learning-objectives");
+      var objectives2=document.getElementsByClassName("learning-objectives2");
+      objectives[0].classList.add("showme");
+      objectives2[0].classList.remove("showme");
+      this.setState({
+        objectives: false,
+      });
+    }else if(this.state.objectives){
+      var objectives2=document.getElementsByClassName("learning-objectives2");
+      objectives2[0].classList.remove("showme");
       this.setState({
         objectives: false,
       });
     }else{
-      var objectives=document.getElementsByClassName("ease-right");
-      objectives[0].classList.add("showme");
+      var objectives2=document.getElementsByClassName("learning-objectives2");
+      objectives2[0].classList.add("showme");
       this.setState({
         objectives: true,
       });
@@ -116,6 +130,12 @@ class App extends Component {
   showModal3 = () => {
     this.setState({
       modal3visible: true,
+    });
+  }
+
+  showStyles = () => {
+    this.setState({
+      modal4visible: true,
     });
   }
 
@@ -164,6 +184,11 @@ class App extends Component {
       modal3visible: false,
     });
   }
+  handleCancel4 = (e) => {
+    this.setState({
+      modal4visible: false,
+    });
+  }
 
   render() {
     return (
@@ -174,6 +199,7 @@ class App extends Component {
             <h1>Welcome to Cryptography</h1>
             <div className="ease-controls">
               <div className="fa-icon"><Tooltip placement="bottom" title="Course Dashboard"><FontAwesomeIcon icon="tachometer-alt" onClick={this.showDrawer1} /></Tooltip></div>
+              <div className="fa-icon"><Tooltip placement="bottom" title="Customize Styles"><FontAwesomeIcon icon="paint-brush" onClick={this.showStyles} /></Tooltip></div>
             </div>
           </div>
         </div>
@@ -302,6 +328,18 @@ class App extends Component {
           >
             <Media />
           </Modal>
+
+          <Modal
+            title="Customize Styles"
+            footer={null}
+            visible={this.state.modal4visible}
+            closable={true}
+            className="ease-styles"
+            onCancel={this.handleCancel4}
+          >
+            <Styles />
+          </Modal>
+
         
           <Modal
             title="LTI"

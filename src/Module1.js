@@ -109,7 +109,7 @@ class Module extends Component {
     var newpage="page" + this.state.module;
     var showpage=document.getElementById(newpage);
     var self=this;
-    if(this.state.module != 8){
+    if(this.state.module != 9){
     element.classList.add("next-animate");
     setTimeout(function() {
       self.setState((prevState, props) => ({
@@ -137,18 +137,19 @@ class Module extends Component {
     var showpage=document.getElementById(newpage);
     var self=this;
     if(this.state.module != 2){
-    element.classList.add("prev-animate");
+    element.classList.add("prev-animate2");
     setTimeout(function() {
       self.setState((prevState, props) => ({
         module: prevState.module - 1
       }));  
       showpage.classList.add("showpage");
+      showpage.classList.remove("hidepage");
       hidepage.classList.add("hidepage");
-      element.classList.add("prev-animate2");
+      element.classList.add("prev-animate");
     }, 250);
     setTimeout(function() {
-      element.classList.remove("prev-animate");
       element.classList.remove("prev-animate2");
+      element.classList.remove("prev-animate");
       showpage.classList.remove("hidepage");
     }, 500);
   }
@@ -166,9 +167,7 @@ class Module extends Component {
         </div>
     	  
         <div id="reading">
-
-          <div className="module-content" id="page1">
-              <div className="ease-right">
+              <div className="learning-objectives2">
                 <h3>Learning Objectives</h3>
                 <ul class="fa-ul">
                   <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain the difference between Asymmetric Encryption and Symmetric Encryption</li>
@@ -176,7 +175,17 @@ class Module extends Component {
                   <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain how an attacker would obtain the secret keys to read a secret message</li>
                 </ul>
               </div>
+
+          <div className="module-content" id="page1">
     		    <h3>3.1 Topic Overview</h3>
+              <div className="learning-objectives">
+                <h3>Learning Objectives</h3>
+                <ul class="fa-ul">
+                  <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain the difference between Asymmetric Encryption and Symmetric Encryption</li>
+                  <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Match two different scenarios where each is appropriate (generic, self-inferred)</li>
+                  <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain how an attacker would obtain the secret keys to read a secret message</li>
+                </ul>
+              </div>
             <div className="ease-intro">
               <img src={img1} className="leftimg" />
               <p>Asymmetric Encryption algorithms are used in secure web browsing using the https protocol, and also in creating digital signatures and digital certificates. Asymmetric Encryption, also known as Public Key Encryption, uses a pair of keys, one public and one private, to encrypt and decrypt data, respectively. In this section, we will outline the differences between Asymmetric and Symmetric Encryption, analyse two different scenarios and apply the appropriate encryption scheme to each, and describe how an attacker could compromise the private key in order to decrypt and read an encrypted message. </p>
@@ -265,25 +274,47 @@ class Module extends Component {
               </Carousel>
             </div>          
           </div>
-
           <div className="module-content" id="page6">
             <h3>3.6 Learning Lab</h3>
             <div className="ease-intro">
+            <p>One-Time Pad programs generate a pseudo random number generator (PRNG) character sequence of pads to use to encrypt communication. The numbers are pseudo random because they are not truly random, as a computer is not capable of truly producing anything random.</p>
+            <div className="ease-activity">
+              <div className="fa-icon-activity"><FontAwesomeIcon icon="cloud" /></div> 
+              <div className="ease-activity-info">
+                <span>10 pts</span>
+              </div>
+              <h4>Explore: Creating a One Time Pad</h4>
+              <p>In this lab, you will explore generating a OTP sequence of random values and see what happens when a random number generator is not random at all. </p>
+              <p>The lab environment will open in a modal window. Click OK [in the dialogue box] and follow the prompts to complete each task.</p>
+              <button  onClick={this.showModal3}>Open</button>
+            </div>
+
+            </div>          
+          </div>
+
+          <div className="module-content" id="page7">
+            <h3>3.7 Learning Lab</h3>
+            <div className="ease-intro">
               <div className="ease-activity">
-                <div className="fa-icon-activity"><FontAwesomeIcon icon="check-square" /></div> 
+                <div className="fa-icon-activity"><FontAwesomeIcon icon="play-circle" /></div> 
                 <div className="ease-activity-info">
                   <span>5 pts</span>
                 </div>
                 <h4>Practice: RSA Key Generation with GPG</h4>
                 <p>Let’s explore public and private key encryption and decryption in a practical example. This lab will explore how private and public keys are generated as key pairs and used to secretly exchange private information.</p>
                 <p>The lab environment will open in a new tab. Click OK [in the dialogue box] and follow the prompts to complete each task.</p>
-                <button>Start</button>
+            <button onClick={this.showActivity}>Open</button>
               </div>
+          <div className={this.state.activity} >
+            <Media />
+            <FontAwesomeIcon icon="times" className="activity-close" onClick={this.hideActivity} />
+          </div>
+
             </div>          
           </div>
 
-          <div className="module-content" id="page7">
-            <h3>3.7 Knowledge Check</h3>
+          <div className="module-content" id="page8">
+            <h3>3.8 Knowledge Check</h3>
             <div className="ease-intro">
               <div className="ease-activity">
                 <div className="fa-icon-activity"><FontAwesomeIcon icon="pencil-ruler" /></div> 
@@ -302,6 +333,18 @@ class Module extends Component {
           </div>
  
         </div>
+
+          <Modal
+            title="LTI"
+            footer={null}
+            visible={this.state.modal3visible}
+            className="ease-module-modal2"
+            onCancel={this.handleCancel3}
+          >
+            <LTI />
+          </Modal>
+
+
 
       </div>
     )

@@ -41,11 +41,25 @@ li{margin-bottom:12px;}
     margin:0 auto;
     max-width:$reading-width;
 
+
+
+
     .ease-card{
       background-color:$light-background;
       border-radius:$radius;
-      padding:20px;
+      padding:0px;
       margin-bottom:$element-spacing;
+      border:2px solid $primary;
+      box-shadow:0px 0px 12px #999;
+  h3{
+    background-color:$primary;
+    color:#fff;
+    padding:20px;
+  }
+  ul{
+    padding:15px;
+  }
+
     }
 
     .ease-activity{
@@ -54,6 +68,7 @@ li{margin-bottom:12px;}
       border-radius:$radius 0 0 $radius;
       position:relative;
       margin-bottom:$element-spacing;
+      clear:right;
 
       .fa-icon-activity{
         position:absolute;
@@ -184,6 +199,8 @@ li{margin-bottom:12px;}
     font-size:1.1em;
     text-align: center;
     line-height:2em;
+    display:inline-block;
+    margin-right:8px;
   }
 
   button{
@@ -199,6 +216,11 @@ li{margin-bottom:12px;}
 }
 
 .ant-drawer{
+
+  &.nav-open{
+  transform: translateY(0)!important;
+  }
+
 
   .ant-drawer-title{
     font-size:$heading2-font-size;
@@ -245,7 +267,7 @@ li{margin-bottom:12px;}
 
   &.shrink{
       transition: all .3s ease-in-out;
-        transform: translateY(calc(100vh - 123px));
+        transform: translateY(calc(100vh - 123px))!important;
       .ant-drawer-mask{
         display:none;
       }
@@ -288,7 +310,7 @@ li{margin-bottom:12px;}
 }
 
 .ant-modal-wrap{
-  top:50px;
+  top:10px;
 }
 
 .ease-module-modal{
