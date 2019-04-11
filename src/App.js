@@ -96,9 +96,7 @@ class App extends Component {
     var growicon=document.getElementsByClassName("max-icon");
     var shrinkicon=document.getElementsByClassName("min-icon");
     var menucontrol=document.getElementById("menu-control");
-    var navleft=document.getElementsByClassName("ease-drawer3");
     element1[0].classList.add("shrink");
-    navleft[0].classList.add("shrink");
     shrinkicon[0].classList.add("hideme");
     menucontrol.classList.add("hideme");
     growicon[0].classList.add("showme");
@@ -109,9 +107,7 @@ class App extends Component {
     var shrinkicon=document.getElementsByClassName("min-icon");
     var growicon=document.getElementsByClassName("max-icon");
     var menucontrol=document.getElementById("menu-control");
-    var navleft=document.getElementsByClassName("ease-drawer3");
     element1[0].classList.remove("shrink");
-    navleft[0].classList.remove("shrink");
     shrinkicon[0].classList.remove("hideme");
     menucontrol.classList.remove("hideme");
     growicon[0].classList.remove("showme");
