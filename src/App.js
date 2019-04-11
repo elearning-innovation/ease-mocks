@@ -9,7 +9,7 @@ import LTI from './LTI';
 import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush} from '@fortawesome/free-solid-svg-icons'
+import { faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush, faGripHorizontal} from '@fortawesome/free-solid-svg-icons'
 import logo from './logo.svg';
 import module1 from './img/shutterstock_783058903-360.jpg';
 import module2 from './img/shutterstock_731631664-360px.jpg';
@@ -18,7 +18,7 @@ import module4 from './img/shutterstock_429812950-360px.jpg';
 import module5 from './img/shutterstock_307370969-360px.jpg';
 import module6 from './img/857499small.jpg';
 
-library.add(faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush)
+library.add(faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush, faGripHorizontal)
 
 class App extends Component {
 
@@ -31,6 +31,7 @@ class App extends Component {
     modal3visible: false, 
     modal4visible: false, 
     objectives: "start",
+    grid:1,
   }
 
   showDrawer1 = () => {
@@ -61,6 +62,34 @@ class App extends Component {
     });
   }
 
+  changeGrid = () => {
+    if(this.state.grid == 1){
+    var element1=document.getElementsByClassName("ease-module-grid");
+    element1[0].classList.add("large-grid");
+    element1[0].classList.remove("small-grid");
+    this.setState({
+      grid: 3,
+    });
+    }
+    if(this.state.grid == 3){
+    var element1=document.getElementsByClassName("ease-module-grid");
+    element1[0].classList.add("small-grid");
+    element1[0].classList.remove("large-grid");
+    this.setState({
+      grid: 2,
+    });
+    }
+    if(this.state.grid == 2){
+    var element1=document.getElementsByClassName("ease-module-grid");
+    element1[0].classList.remove("small-grid");
+    element1[0].classList.remove("large-grid");
+    this.setState({
+      grid: 1,
+    });
+    }
+
+
+  }
 
   shrinkModule = () => {
     var element1=document.getElementsByClassName("ant-drawer");
@@ -223,6 +252,7 @@ class App extends Component {
           </div>
         </div>
         <div className="ease-modules">
+              <FontAwesomeIcon icon="grip-horizontal" className="grid-icon" onClick={this.changeGrid} />
             <div className="ease-module-grid">
 
             <div className="ease-module" onClick={this.showDrawer2}>
@@ -290,33 +320,10 @@ class App extends Component {
             className="ease-drawer2"
             mask={true}
           >
-            <Tooltip placement="right" title="Module Contents"><FontAwesomeIcon icon="bars" className="menu-icon" id="menu-control" onClick={this.showDrawer3} /></Tooltip>
             <Tooltip placement="right" title="Shrink Module"><FontAwesomeIcon icon="window-minimize"  className="min-icon" onClick={this.shrinkModule} /></Tooltip>
             <FontAwesomeIcon icon="window-maximize"  className="max-icon" onClick={this.growModule} />
             <Tooltip placement="right" title="Show/Hide Learning Objectives"><FontAwesomeIcon icon="list-alt"  className="lo-icon" onClick={this.showObjectives} /></Tooltip>
             <Module1 />
-
-            <Drawer
-              placement="left"
-              closable={false}
-              width={200}
-              onClose={this.onClose3}
-              visible={this.state.drawer3visible}
-              className="ease-drawer3"
-              mask={false}
-            >
-              <FontAwesomeIcon icon="times" onClick={this.onClose3} />
-              <h3>Module Contents</h3>
-              <ul>
-                <li>3.1 Topic Overview</li>
-                <li>3.2 Introduction to Asymmetric Encryption</li>
-                <li>3.3 The Asymmetric Solution</li>
-                <li>3.4 The Diffie-Hellman Key Exchange Algorithm</li>
-                <li>3.5 Vulnerabilites</li>
-                <li>3.6 Learning Lab</li>
-                <li>3.7 Knowledge Check</li>
-              </ul>
-            </Drawer>
           </Drawer>
 
           <Modal

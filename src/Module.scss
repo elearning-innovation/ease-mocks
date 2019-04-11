@@ -6,6 +6,55 @@ h1, h2, h3, h4{
   font-family: $heading-font;
 }
 
+.ant-drawer{
+  
+  &.ease-drawer3{ 
+
+    .ant-drawer-content-wrapper{
+      top:70px;
+      box-shadow:none!important;
+
+      .ant-drawer-content{
+        background-color:$dark-background;
+        color:#fff;
+        font-size:90%;
+      }
+
+      .ant-drawer-body{
+        padding-top:14px;
+
+        h3{
+          color:#fff;
+          margin:20px 0 0 0;
+        }
+
+        ul{
+          list-style-type:none;
+          padding:0;
+          margin-top:10px;
+        }
+      }
+    }
+  }
+}
+
+.menu-icon{
+  position:absolute;
+  top:12px;
+  z-index:1000;
+  border-radius: 20px;
+  background-color: #efefef;
+  padding: 7px;
+  height: 1.7em;
+  width: 1.7em!important;
+  &.hideme{
+    display:none;
+  }
+  &:hover{background-color:$light-background;}
+  &.hideme{display:none;}
+}
+
+
 .ant-drawer-title{
   font-size:1.3rem;
   font-family: $heading-font;

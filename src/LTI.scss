@@ -1,3 +1,60 @@
+@import "./colors";
+@import "./fonts";
+@import "./vars";
+
+
 .modalimg{
 	width:100%;
+}
+.ant-modal-mask{
+	
+&.hideme{
+	display:none;
+}
+}
+
+.ant-modal{
+      transition: all .3s ease-in-out;
+	
+  &.shrink{
+      transition: all .3s ease-in-out;
+        transform: translateY(calc(100vh - 60px))!important;
+      .ant-modal-mask{
+        display:none;
+      }
+
+
+}
+}
+.max-icon1{
+  display:none;
+  position:absolute;
+  top:12px;
+  right:50px;
+  z-index:2000;
+  border-radius: 20px;
+  background-color: #efefef;
+  padding: 7px;
+  height: 1.7em;
+  width: 1.7em!important;
+  &.showme{
+    display:block;
+  }
+  &:hover{background-color:$light-background;}
+}
+
+.min-icon1{
+  position:absolute;
+  top:12px;
+  right:50px;
+  z-index:1000;
+  border-radius: 20px;
+  background-color: #efefef;
+  padding: 7px;
+  height: 1.7em;
+  width: 1.7em!important;
+  &.hideme{
+    display:none;
+  }
+  &:hover{background-color:$light-background;}
 }

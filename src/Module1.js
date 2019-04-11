@@ -36,6 +36,7 @@ class Module extends Component {
     modal2visible: false, 
     modal3visible: false, 
     drawervisible: false, 
+    drawer3visible: false, 
     activity: "hide-activity", 
     activityContainer: "", 
     module: 2,
@@ -102,19 +103,70 @@ class Module extends Component {
     });
   };
   
-  nextPage = () => {
+  showDrawer3 = () => {
+    var element1=document.getElementsByClassName("module");
+    element1[0].classList.add("nav-open");
+    var element2=document.getElementsByClassName("nav-left");
+    element2[0].classList.add("nav-open");
+    var element3=document.getElementsByClassName("ant-drawer-title");
+    element3[0].classList.add("nav-open");
+    var element4=document.getElementsByClassName("ant-drawer");
+    element4[0].classList.add("nav-open");
+    var element5=document.getElementById("menu-control");
+    element5.classList.add("hideme");
+
+
+    this.setState({
+      drawer3visible: true,
+    });
+  }
+
+  onClose3 = () => {
+    this.setState({
+      drawer3visible: false,
+    });
+    var element1=document.getElementsByClassName("module");
+    element1[0].classList.remove("nav-open");
+    var element2=document.getElementsByClassName("nav-left");
+    element2[0].classList.remove("nav-open");
+    var element3=document.getElementsByClassName("ant-drawer-title");
+    element3[0].classList.remove("nav-open");
+    var element4=document.getElementsByClassName("ant-drawer");
+    element4[0].classList.remove("nav-open");
+    var element5=document.getElementById("menu-control");
+    element5.classList.remove("hideme");
+
+  };
+
+
+  nextPage = (pagenum) => {
+    console.log(pagenum)
     var element=document.getElementById("reading");
+    if(pagenum>0){
+      var newpage="page" + pagenum;
+    }
+    else{
+      console.log("setting new page")
+      var newpage="page" + this.state.module;
+    }
     var curpage="page" + (this.state.module - 1);
     var hidepage=document.getElementById(curpage);
-    var newpage="page" + this.state.module;
     var showpage=document.getElementById(newpage);
     var self=this;
-    if(this.state.module != 9){
+    if(this.state.module != 9 || pagenum>0){
     element.classList.add("next-animate");
+    console.log(this.state.module);
     setTimeout(function() {
+    if(pagenum){
+      self.setState((prevState, props) => ({
+        module: pagenum+1
+      })); 
+    }
+    else{
       self.setState((prevState, props) => ({
         module: prevState.module + 1
       })); 
+    }
       showpage.classList.add("showpage");
       showpage.classList.remove("hidepage");
       hidepage.classList.add("hidepage");
@@ -124,12 +176,14 @@ class Module extends Component {
       element.classList.remove("next-animate");
       element.classList.remove("next-animate2");
     }, 500);
-  }
+    console.log(this.state.module);
 
   }
 
+  }
 
-  prevPage = () => {
+
+  prevPage = (pagenum) => {
     var element=document.getElementById("reading");
     var curpage="page" + (this.state.module-1);
     var hidepage=document.getElementById(curpage);
@@ -161,8 +215,10 @@ class Module extends Component {
   render() {
     return(
       <div className="module" id="module1">
+            <FontAwesomeIcon icon="bars" className="menu-icon" id="menu-control" onClick={this.showDrawer3} />
+
         <div className="nav-arrows">
-          <div className="fa-icon nav nav-right" onClick={this.nextPage}><Tooltip placement="left" title="Next Page"><FontAwesomeIcon icon="angle-right"  /></Tooltip></div>
+          <div className="fa-icon nav nav-right" onClick={() => this.nextPage(0)}><Tooltip placement="left" title="Next Page"><FontAwesomeIcon icon="angle-right"  /></Tooltip></div>
           <div className="fa-icon nav nav-left"  onClick={this.prevPage}><Tooltip placement="right" title="Previous Page"><FontAwesomeIcon icon="angle-left" /></Tooltip></div>
         </div>
     	  
@@ -334,8 +390,33 @@ class Module extends Component {
  
         </div>
 
+            <Drawer
+              placement="left"
+              closable={false}
+              width={200}
+              onClose={this.onClose3}
+              visible={this.state.drawer3visible}
+              className="ease-drawer3"
+              mask={false}
+            >
+              <FontAwesomeIcon icon="times" onClick={this.onClose3} />
+              <h3>Module Contents</h3>
+              <ul>
+                <li onClick={() => this.nextPage(1)}>3.1 Topic Overview</li>
+                <li onClick={() => this.nextPage(2)}>3.2 Introduction to Asymmetric Encryption</li>
+                <li onClick={() => this.nextPage(3)}>3.3 The Asymmetric Solution</li>
+                <li onClick={() => this.nextPage(4)}>3.4 The Diffie-Hellman Key Exchange Algorithm</li>
+                <li onClick={() => this.nextPage(5)}>3.5 Vulnerabilites</li>
+                <li onClick={() => this.nextPage(6)}>3.6 Learning Lab</li>
+                <li onClick={() => this.nextPage(7)}>3.7 Learning Lab</li>
+                <li onClick={() => this.nextPage(8)}>3.8 Knowledge Check</li>
+              </ul>
+            </Drawer>
+
+
           <Modal
-            title="LTI"
+            title="Learning Lab"
+            mask={false}
             footer={null}
             visible={this.state.modal3visible}
             className="ease-module-modal2"
