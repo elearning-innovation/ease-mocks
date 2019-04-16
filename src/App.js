@@ -23,45 +23,26 @@ library.add(faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCi
 class App extends Component {
 
   state = { 
-    drawer1visible: false, 
-    drawer2visible: false, 
-    drawer3visible: false, 
-    modal1visible: false, 
-    modal2visible: false, 
-    modal3visible: false, 
-    modal4visible: false, 
+    dashboardvisible: false, 
+    modulevisible: false, 
+    mediavisible: false, 
+    stylesvisible: false, 
     objectives: "start",
     grid:1,
   }
 
-  showDrawer1 = () => {
+  showDashboard = () => {
     this.setState({
-      drawer1visible: true,
+      dashboardvisible: true,
     });
   }
 
-  showDrawer2 = () => {
+  showModule = () => {
     this.setState({
-      drawer2visible: true,
+      modulevisible: true,
     });
   }
    
-  showDrawer3 = () => {
-    var element1=document.getElementsByClassName("module");
-    element1[0].classList.add("nav-open");
-    var element2=document.getElementsByClassName("nav-left");
-    element2[0].classList.add("nav-open");
-    var element3=document.getElementsByClassName("ant-drawer-title");
-    element3[0].classList.add("nav-open");
-    var element4=document.getElementsByClassName("ant-drawer");
-    element4[0].classList.add("nav-open");
-
-
-    this.setState({
-      drawer3visible: true,
-    });
-  }
-
   changeGrid = () => {
     if(this.state.grid == 1){
     var element1=document.getElementsByClassName("ease-module-grid");
@@ -87,8 +68,6 @@ class App extends Component {
       grid: 1,
     });
     }
-
-
   }
 
   shrinkModule = () => {
@@ -102,6 +81,7 @@ class App extends Component {
     growicon[0].classList.add("showme");
     document.getElementsByTagName("BODY")[0].classList.add("allowOverflow");
   }
+
   growModule = () => {
     var element1=document.getElementsByClassName("ant-drawer");
     var shrinkicon=document.getElementsByClassName("min-icon");
@@ -138,80 +118,27 @@ class App extends Component {
     }
   }
 
-
-
-  showModal1 = () => {
-    this.setState({
-      modal1visible: true,
-    });
-  }
-  
-  showModal2 = () => {
-    this.setState({
-      modal2visible: true,
-    });
-  }
-
-  showModal3 = () => {
-    this.setState({
-      modal3visible: true,
-    });
-  }
-
   showStyles = () => {
     this.setState({
-      modal4visible: true,
+      stylesvisible: true,
     });
   }
 
   onClose1 = () => {
     this.setState({
-      drawer1visible: false,
+      dashboardvisible: false,
     });
   };
   
   onClose2 = () => {
     this.setState({
-      drawer2visible: false,
-      drawer3visible: false,
+      modulevisible: false,
     });
   };
-  
-  onClose3 = () => {
-    this.setState({
-      drawer3visible: false,
-    });
-    var element1=document.getElementsByClassName("module");
-    element1[0].classList.remove("nav-open");
-    var element2=document.getElementsByClassName("nav-left");
-    element2[0].classList.remove("nav-open");
-    var element3=document.getElementsByClassName("ant-drawer-title");
-    element3[0].classList.remove("nav-open");
-    var element4=document.getElementsByClassName("ant-drawer");
-    element4[0].classList.remove("nav-open");
-
-  };
-
-  handleCancel1 = (e) => {
-    this.setState({
-      modal1visible: false,
-    });
-  }
-  
-  handleCancel2 = (e) => {
-    this.setState({
-      modal2visible: false,
-    });
-  }
-  
-  handleCancel3 = (e) => {
-    this.setState({
-      modal3visible: false,
-    });
-  }
+    
   handleCancel4 = (e) => {
     this.setState({
-      modal4visible: false,
+      stylesvisible: false,
     });
   }
 
@@ -223,7 +150,7 @@ class App extends Component {
           <div className="ease-header-content">
             <h1>Welcome to Cryptography</h1>
             <div className="ease-controls">
-              <div className="fa-icon"><Tooltip placement="bottom" title="Course Dashboard"><FontAwesomeIcon icon="tachometer-alt" onClick={this.showDrawer1} /></Tooltip></div>
+              <div className="fa-icon"><Tooltip placement="bottom" title="Course Dashboard"><FontAwesomeIcon icon="tachometer-alt" onClick={this.showDashboard} /></Tooltip></div>
               <div className="fa-icon"><Tooltip placement="bottom" title="Customize Styles"><FontAwesomeIcon icon="paint-brush" onClick={this.showStyles} /></Tooltip></div>
             </div>
           </div>
@@ -251,7 +178,7 @@ class App extends Component {
               <FontAwesomeIcon icon="grip-horizontal" className="grid-icon" onClick={this.changeGrid} />
             <div className="ease-module-grid">
 
-            <div className="ease-module" onClick={this.showDrawer2}>
+            <div className="ease-module" onClick={this.showModule}>
               <img src={module1} className="respnsive-image" />
               <div className="ease-module-text">
               <h4>Topic 1: Symmetric Encryption</h4>
@@ -259,7 +186,7 @@ class App extends Component {
               <div className="ease-status status100"></div>
             </div>
             
-            <div className="ease-module" onClick={this.showDrawer2}>
+            <div className="ease-module" onClick={this.showModule}>
               <img src={module2} className="respnsive-image" />
               <div className="ease-module-text">
               <h4>Topic 2: One-Time Pads</h4>
@@ -267,7 +194,7 @@ class App extends Component {
               <div className="ease-status status75"></div>
             </div>
             
-            <div className="ease-module" onClick={this.showDrawer2}>
+            <div className="ease-module" onClick={this.showModule}>
               <img src={module3} className="respnsive-image" />
               <div className="ease-module-text">
               <h4>Topic 3: Asymmetric Encryption</h4>
@@ -275,7 +202,7 @@ class App extends Component {
               <div className="ease-status status100"></div>
             </div>
             
-            <div className="ease-module" onClick={this.showDrawer2}>
+            <div className="ease-module" onClick={this.showModule}>
               <img src={module4} className="respnsive-image" />
               <div className="ease-module-text">
                 <h4>Topic 4: Encryption in Use</h4>
@@ -283,7 +210,7 @@ class App extends Component {
               <div className="ease-status status25"></div>
             </div>
             
-            <div className="ease-module" onClick={this.showDrawer2}>
+            <div className="ease-module" onClick={this.showModule}>
               <img src={module5} className="respnsive-image" />
               <div className="ease-module-text">
                 <h4>Topic 5: Common Uses of Encryption</h4>
@@ -291,7 +218,7 @@ class App extends Component {
               <div className="ease-status status25"></div>
             </div>
             
-            <div className="ease-module" onClick={this.showDrawer2}>
+            <div className="ease-module" onClick={this.showModule}>
               <img src={module6} className="respnsive-image" />
               <div className="ease-module-text">
                 <h4>Bonus: Hacking Lab</h4>
@@ -299,7 +226,7 @@ class App extends Component {
               <div className="ease-status"></div>
             </div>
             
-            <div className="ease-module" onClick={this.showDrawer2}>
+            <div className="ease-module" onClick={this.showModule}>
               <div className="ease-module-text">
                 <h4>Test</h4>
               </div>
@@ -307,12 +234,13 @@ class App extends Component {
             </div>
             
             </div>
+
           <Drawer
             placement="bottom"
             closable={true}
             title="Topic 3: Asymmetric Encryption"
             onClose={this.onClose2}
-            visible={this.state.drawer2visible}
+            visible={this.state.modulevisible}
             className="ease-drawer2"
             mask={true}
           >
@@ -323,19 +251,9 @@ class App extends Component {
           </Drawer>
 
           <Modal
-            title="Media"
-            footer={null}
-            visible={this.state.modal2visible}
-            className="ease-module-modal2"
-            onCancel={this.handleCancel2}
-          >
-            <Media />
-          </Modal>
-
-          <Modal
             title="Customize Styles"
             footer={null}
-            visible={this.state.modal4visible}
+            visible={this.state.stylesvisible}
             closable={true}
             className="ease-styles"
             onCancel={this.handleCancel4}
@@ -343,23 +261,12 @@ class App extends Component {
             <Styles />
           </Modal>
 
-        
-          <Modal
-            title="LTI"
-            footer={null}
-            visible={this.state.modal3visible}
-            className="ease-module-modal2"
-            onCancel={this.handleCancel3}
-          >
-            <LTI />
-          </Modal>
-
           <Drawer
             title="Dashboard for Course"
             placement="right"
             closable={true}
             onClose={this.onClose1}
-            visible={this.state.drawer1visible}
+            visible={this.state.dashboardvisible}
             className="ease-drawer"
           >
             <Dashboard />

@@ -30,12 +30,11 @@ class LTI extends Component {
 
   render() {
     return(
-<div>
+		<div>
            <FontAwesomeIcon icon="window-minimize"  className="min-icon1" onClick={this.shrinkModule} />
-            <FontAwesomeIcon icon="window-maximize"  className="max-icon1" onClick={this.growModule} />
-
-      <img src={img1} className="modalimg" />
-</div>
+           <FontAwesomeIcon icon="window-maximize"  className="max-icon1" onClick={this.growModule} />
+			<img src={img1} className="modalimg" />
+		</div>
     )
   }
 }

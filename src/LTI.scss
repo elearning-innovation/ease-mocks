@@ -2,19 +2,19 @@
 @import "./fonts";
 @import "./vars";
 
-
 .modalimg{
 	width:100%;
 }
+
 .ant-modal-mask{
 	
-&.hideme{
-	display:none;
-}
+	&.hideme{
+		display:none;
+	}
 }
 
 .ant-modal{
-      transition: all .3s ease-in-out;
+     transition: all .3s ease-in-out;
 	
   &.shrink{
       transition: all .3s ease-in-out;
