@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Row } from 'antd';
+import { Button, Form, Input, Row, Tabs, Select } from 'antd';
 import './Styles.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -21,9 +21,29 @@ const formItemLayout = {
       },
   };
 
+const { TabPane } = Tabs;
+const { TextArea } = Input;
+const { Option } = Select;
 
     return(
       <div>
+
+<p>Select a preset theme or edit the values below. To edit the CSS directly use the advanced tab.</p>
+<Form {...formItemLayout} >
+  <Form.Item label="Select Preset Theme" colon={false}>
+
+<Select defaultValue="default" style={{ width: 120 }}>
+      <Option value="custom">Custom</Option>
+      <Option value="default">Default</Option>
+      <Option value="blue">Blue</Option>
+      <Option value="academic">Academic</Option>
+    </Select>
+    </Form.Item>
+      </Form>
+<br/><br/>
+  <Tabs defaultActiveKey="1">
+    <TabPane tab="Standard" key="1">
+
 <Form {...formItemLayout} >
 	<h3>Colors</h3>
 	<Form.Item label="Heading Background Color" colon={false}>
@@ -84,6 +104,17 @@ const formItemLayout = {
 
 
       </Form>
+
+
+
+    </TabPane>
+    <TabPane tab="Advanced" key="2">
+
+<TextArea rows={20} />
+    </TabPane>
+  </Tabs>
+
+
 </div>
     )
   }

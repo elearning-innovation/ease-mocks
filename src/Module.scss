@@ -405,9 +405,118 @@ h1, h2, h3, h4{
 
 .leftimg{
   float:left;
-  padding:0 20px 20px 0;
+  padding:0 0px 20px 0;
+        z-index:10;
+      position:relative;
 }
 .rightimg{
   float:right;
   padding:0 0 20px 20px;
+}
+
+
+.pageel{
+  position:relative;
+}
+
+.pageel:hover{
+    p{
+      background-color:rgba(100,100,100,.1);
+      opacity:.5;
+    }
+
+    img{
+      opacity:.5;
+    }
+
+    iframe{
+      opacity:.5;
+
+    }
+
+    .ease-activity{
+      opacity:.5;
+    }
+
+
+          .edit-menu{
+            right:-30px;
+            opacity:1;
+          
+            &.horizontal{
+              right:-100px;
+            }
+          }
+
+
+}
+
+.leftel{
+  float:left;
+
+}
+
+
+        .edit-menu{
+          position:absolute;
+          top:10px;
+          right:20px;
+          border-radius:0 $radius $radius 0;
+          background-color:$heading;
+          display:flex;
+          opacity:0;
+          flex-direction:column;
+          z-index:1;
+          transition: all .3s ease-in-out;
+
+
+          &.horizontal{
+            flex-direction:row;
+          }
+          span{
+            color:#fff;
+            padding:0 8px;
+          }
+        }
+
+ .ant-form-item-label{
+  line-height:20px;
+  margin-top:8px;
+ }       
+
+.ant-form-item-label > label{
+  font-weight:600;
+}
+
+
+.textel{
+  
+  .controls{display:none}
+
+  &:focus{
+     border:1px solid #efefef;
+     outline:none;
+     padding:10px;
+     background-color:#fff;
+
+     &:hover{
+      
+      p{
+         opacity:1;
+       background-color:#fff;
+     }
+     }
+
+    .controls{display:block}
+  }
+
+}
+
+.edit-icon{
+            position:absolute;
+          top:-10px;
+          right:-10px;
+          border-radius:$radius;
+          background-color:$heading;
+          padding:2px 8px;
 }

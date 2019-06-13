@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Drawer, Modal, Button, Tooltip, Form, Input } from 'antd';
+import { Drawer, Modal, Button, Tooltip, Form, Input, Checkbox, Upload, Icon, Radio } from 'antd';
 import "antd/dist/antd.css";
 import Dashboard from './Dashboard';
 import Module1 from './Module1';
@@ -9,7 +9,7 @@ import LTI from './LTI';
 import './App.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush, faGripHorizontal} from '@fortawesome/free-solid-svg-icons'
+import { faTachometerAlt, faAngleRight, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush, faGripHorizontal, faGripVertical, faTrashAlt, faPlus, faPencilAlt, faImage, faVideo, faVolumeUp, faCheckSquare, faCommentAlt, faLayerGroup, faCog} from '@fortawesome/free-solid-svg-icons'
 import logo from './logo.svg';
 import module1 from './img/shutterstock_783058903-360.jpg';
 import module2 from './img/shutterstock_731631664-360px.jpg';
@@ -17,14 +17,26 @@ import module3 from './img/shutterstock_573530671-small.jpg';
 import module4 from './img/shutterstock_429812950-360px.jpg';
 import module5 from './img/shutterstock_307370969-360px.jpg';
 import module6 from './img/857499small.jpg';
+import Reorder, {
+  reorder,
+  reorderImmutable,
+  reorderFromTo,
+  reorderFromToImmutable
+} from 'react-reorder';
 
-library.add(faTachometerAlt, faAngleRight, faCheckSquare, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush, faGripHorizontal)
+
+library.add(faTachometerAlt, faAngleRight, faFileUpload, faPlayCircle, faCloud, faPencilRuler, faArrowLeft, faWindowMinimize, faWindowMaximize, faListAlt, faPaintBrush, faGripHorizontal, faGripVertical, faTrashAlt, faPlus, faPencilAlt, faImage, faVideo, faVolumeUp, faCheckSquare, faCommentAlt, faLayerGroup, faCog)
+
+const Dragger = Upload.Dragger;
+
 
 class App extends Component {
 
   state = { 
     dashboardvisible: false, 
     modulevisible: false, 
+    modulesettingsvisible: false, 
+    moduleimagevisible: false, 
     mediavisible: false, 
     stylesvisible: false, 
     objectives: "start",
@@ -43,6 +55,22 @@ class App extends Component {
     });
   }
    
+  showModuleSettings = (e) => {
+e.stopPropagation();
+    this.setState({
+      modulesettingsvisible: true,
+
+    });
+  }
+
+  showModuleImage = (e) => {
+e.stopPropagation();
+    this.setState({
+      moduleimagevisible: true,
+
+    });
+  }
+
   changeGrid = () => {
     if(this.state.grid == 1){
     var element1=document.getElementsByClassName("ease-module-grid");
@@ -136,11 +164,25 @@ class App extends Component {
     });
   };
     
+  onClose3 = () => {
+    this.setState({
+      modulesettingsvisible: false,
+    });
+  };
+  onClose4 = () => {
+    this.setState({
+      moduleimagevisible: false,
+    });
+  };
+
+
   handleCancel4 = (e) => {
     this.setState({
       stylesvisible: false,
     });
   }
+
+
 
   render() {
     return (
@@ -160,12 +202,35 @@ class App extends Component {
           <h2>Course Overview</h2>
           <div className="ease-card">
             <h3>Course Outcomes</h3>
-            <ul class="fa-ul">
-              <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Identify the major uses of cryptography for maintaining the confidentiality, integrity and availability of data both at rest and in flight</li>
-              <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Describe how digital signatures and PKI are used to validate the source and integrity of information</li>
-              <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Analyze the conflict between data privacy and organizational security as presented by the use of encryption</li>
-              <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Solve decryption problems using a variety of keys.</li>
-            </ul>
+<Reorder reorderId="my-list" component="ul" className="fa-ul" lock="horizontal">
+              <li><FontAwesomeIcon icon="grip-vertical" className="icon-left hidden" /><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Identify the major uses of cryptography for maintaining the confidentiality, integrity and availability of data both at rest and in flight <FontAwesomeIcon icon="trash-alt" className="icon-right hidden" /></li>
+              <li><FontAwesomeIcon icon="grip-vertical" className="icon-left hidden" /><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Describe how digital signatures and PKI are used to validate the source and integrity of information <FontAwesomeIcon icon="trash-alt" className="icon-right hidden" /></li>
+              <li><FontAwesomeIcon icon="grip-vertical" className="icon-left hidden" /><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Analyze the conflict between data privacy and organizational security as presented by the use of encryption <FontAwesomeIcon icon="trash-alt" className="icon-right hidden" /></li>
+              <li><FontAwesomeIcon icon="grip-vertical" className="icon-left hidden" /><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Solve decryption problems using a variety of keys. <FontAwesomeIcon icon="trash-alt" className="icon-right hidden" /></li>
+          <div className="add-menu">
+            <div className="add-item"><FontAwesomeIcon icon="plus" /></div>
+          </div>
+
+
+</Reorder>
+
+
+
+          </div>
+
+          <div className="add-menu">
+            <input type="checkbox" />
+            <div className="add-item"><FontAwesomeIcon icon="plus" /></div>
+            <div className="add-menu-items">
+              <div className="action_items">
+                <span><Tooltip placement="top" title="Add Text"><FontAwesomeIcon icon="pencil-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Video"><FontAwesomeIcon icon="video" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Audio"><FontAwesomeIcon icon="volume-up" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Assessment"><FontAwesomeIcon icon="check-square" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Layout"><FontAwesomeIcon icon="layer-group" /></Tooltip></span>
+              </div>
+            </div>
           </div>
 
           <div className="ease-intro">
@@ -173,17 +238,37 @@ class App extends Component {
             <p>Cryptography plays a vital role in the implementation of confidentiality and integrity in an overall security strategy. As a professional you must be able to explain several types of encryption, how they work, and given a scenario, determine the appropriate method and algorithm to meet the security need. Most technology systems use crypto in one form or another and explaining how these tools utilize the capability and its fit for purpose in an enterprise is key to a successful security program. Professionals also need to describe how cryptography can be utilized to support privacy issues and to ensure trust and how to apply it in the field.</p>
             <p>“When cryptography is outlawed, bayl bhgynjf jvyy unir cevinpl.”<br /> John Perry Barlow </p>
           </div>
+          <div className="add-menu">
+            <input type="checkbox" />
+            <div className="add-item"><FontAwesomeIcon icon="plus" /></div>
+            <div className="add-menu-items">
+              <div className="action_items">
+                <span><Tooltip placement="top" title="Add Text"><FontAwesomeIcon icon="pencil-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Video"><FontAwesomeIcon icon="video" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Audio"><FontAwesomeIcon icon="volume-up" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Assessment"><FontAwesomeIcon icon="check-square" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Layout"><FontAwesomeIcon icon="layer-group" /></Tooltip></span>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div className="ease-modules">
               <FontAwesomeIcon icon="grip-horizontal" className="grid-icon" onClick={this.changeGrid} />
-            <div className="ease-module-grid">
-
+            
+            <Reorder reorderId="module-list" holdTime={200} component="div" className="ease-module-grid" lock="">
             <div className="ease-module" onClick={this.showModule}>
               <img src={module1} className="respnsive-image" />
               <div className="ease-module-text">
               <h4>Topic 1: Symmetric Encryption</h4>
               </div>
               <div className="ease-status status100"></div>
+              <div class="edit-menu">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Change Image"><FontAwesomeIcon icon="image" onClick={this.showModuleImage} /></Tooltip></span>
+                <span><Tooltip placement="top" title="Module Setting"><FontAwesomeIcon icon="cog" onClick={this.showModuleSettings} /></Tooltip></span>
+              </div>
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
@@ -192,6 +277,11 @@ class App extends Component {
               <h4>Topic 2: One-Time Pads</h4>
               </div>
               <div className="ease-status status75"></div>
+              <div class="edit-menu">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Change Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Module Setting"><FontAwesomeIcon icon="cog" /></Tooltip></span>
+              </div>
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
@@ -200,6 +290,11 @@ class App extends Component {
               <h4>Topic 3: Asymmetric Encryption</h4>
               </div>
               <div className="ease-status status100"></div>
+              <div class="edit-menu">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Change Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Module Setting"><FontAwesomeIcon icon="cog" /></Tooltip></span>
+              </div>
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
@@ -208,6 +303,11 @@ class App extends Component {
                 <h4>Topic 4: Encryption in Use</h4>
               </div>
               <div className="ease-status status25"></div>
+              <div class="edit-menu">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Change Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Module Setting"><FontAwesomeIcon icon="cog" /></Tooltip></span>
+              </div>
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
@@ -216,6 +316,11 @@ class App extends Component {
                 <h4>Topic 5: Common Uses of Encryption</h4>
               </div>
               <div className="ease-status status25"></div>
+              <div class="edit-menu">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Change Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Module Setting"><FontAwesomeIcon icon="cog" /></Tooltip></span>
+              </div>
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
@@ -224,6 +329,11 @@ class App extends Component {
                 <h4>Bonus: Hacking Lab</h4>
               </div>
               <div className="ease-status"></div>
+              <div class="edit-menu">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Change Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Module Setting"><FontAwesomeIcon icon="cog" /></Tooltip></span>
+              </div>
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
@@ -231,9 +341,14 @@ class App extends Component {
                 <h4>Test</h4>
               </div>
               <div className="ease-status"></div>
+              <div class="edit-menu horizontal">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Change Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Module Setting"><FontAwesomeIcon icon="cog" /></Tooltip></span>
+              </div>
             </div>
             
-            </div>
+            </Reorder>
 
           <Drawer
             placement="bottom"
@@ -252,14 +367,78 @@ class App extends Component {
 
           <Modal
             title="Customize Styles"
-            footer={null}
             visible={this.state.stylesvisible}
             closable={true}
+            okText="Save"
             className="ease-styles"
             onCancel={this.handleCancel4}
           >
             <Styles />
           </Modal>
+
+          <Modal
+            title="Module Settings"
+            visible={this.state.modulesettingsvisible}
+            closable={true}
+            okText="Save"
+            className="ease-styles"
+            onCancel={this.onClose3}
+          >
+          <h3>Layout Options</h3>
+
+            <Form.Item label="Module Panel Size" colon={false}>
+              <Radio.Group onChange={this.onChange} value={2}>
+                <Radio value={1}>Small</Radio>
+                <Radio value={2}>Medium</Radio>
+                <Radio value={3}>Large</Radio>
+              </Radio.Group>
+            </Form.Item>
+            <Form.Item label="" colon={false}>
+                <Checkbox>Apply this Size to All Modules</Checkbox>
+            </Form.Item>
+            <br />
+          
+          <h3>Completion Requirements</h3>
+          Select the requirements for module completion
+          <Form>
+
+          <div className="modreq">
+            <Form.Item label="" colon={false}>
+              <Checkbox>Require all pages to have been read for completion.</Checkbox>
+            </Form.Item>
+          </div>
+          <div className="modreq">
+            <Form.Item label="Special Quiz" colon={false}>
+              Learning must receive a score of <input />
+            </Form.Item>
+          </div>
+          </Form>
+          <Button>Add Requirement</Button>
+
+          </Modal>
+
+          <Modal
+            title="Module Image"
+            visible={this.state.moduleimagevisible}
+            closable={true}
+            okText="Save"
+            className="ease-styles"
+            onCancel={this.onClose4}
+          >
+
+            <Dragger>
+              <p className="ant-upload-drag-icon">
+                <Icon type="inbox" />
+              </p>
+              <p className="ant-upload-text">Click or drag file to this area to upload</p>
+              <p className="ant-upload-hint">
+                You may provide a .bmp, .gif, .jpg, or .png image to upload.
+              </p>
+            </Dragger>
+
+
+          </Modal>
+
 
           <Drawer
             title="Dashboard for Course"

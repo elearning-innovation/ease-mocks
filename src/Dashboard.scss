@@ -86,4 +86,29 @@ ant-drawer-title{
   }
 }
 
+.ant-table-fixed > .ant-table-thead > tr > th{
+  border:1px solid #eee;
+  position:relative;
+}
+
+
+.ant-table-fixed th:after{
+  display:block;
+font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f05a";
+display: block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    text-align:right;
+    position:absolute;
+    bottom:0;
+    right:0;
+
+}
+.ant-table-fixed th:first-child:after{
+  content:"";
+  display:none;
+}
+
 
