@@ -267,17 +267,45 @@ class Module extends Component {
               <div className="learning-objectives2">
                 <h3>Learning Objectives</h3>
                 <ul class="fa-ul">
-                  <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain the difference between Asymmetric Encryption and Symmetric Encryption</li>
-                </ul>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain the difference between Asymmetric Encryption and Symmetric Encryption
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Match two different scenarios where each is appropriate (generic, self-inferred)
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain how an attacker would obtain the secret keys to read a secret message
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              </ul>
               </div>
 
           <div className="module-content" id="page1">
-    		    <h3>3.1 Topic Overview</h3>
+    		    <h3 className="inline-edit" tabindex="1"><span>3.1 Topic Overview</span> <input type="text" value="3.1 Topic Overview" /></h3>
               <div className="learning-objectives">
                 <h3>Learning Objectives</h3>
                 <ul class="fa-ul">
-                  <li><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain the difference between Asymmetric Encryption and Symmetric Encryption</li>
-                </ul>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain the difference between Asymmetric Encryption and Symmetric Encryption
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Match two different scenarios where each is appropriate (generic, self-inferred)
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Explain how an attacker would obtain the secret keys to read a secret message
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              </ul>
               </div>
             <div className="ease-intro">
           <div className="add-menu">
@@ -295,10 +323,11 @@ class Module extends Component {
             </div>
           </div>
               <div className="pageel leftel" onClick={this.showModal4}>
-              <img src={img1} className="leftimg" />
-              <div class="edit-menu">
-                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
-              </div>
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <img src={img1} className="leftimg" />
+                <div class="edit-menu">
+                  <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                </div>
               </div>
           <div className="add-menu">
             <input type="checkbox" />
@@ -315,6 +344,7 @@ class Module extends Component {
             </div>
           </div>
               <div className="pageel textel" tabindex="0" onClick={this.toggleEdit}>
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <div class="controls"><img src={img6} /></div>
               <p>Asymmetric Encryption algorithms are used in secure web browsing using the https protocol, and also in creating digital signatures and digital certificates. Asymmetric Encryption, also known as Public Key Encryption, uses a pair of keys, one public and one private, to encrypt and decrypt data, respectively. In this section, we will outline the differences between Asymmetric and Symmetric Encryption, analyse two different scenarios and apply the appropriate encryption scheme to each, and describe how an attacker could compromise the private key in order to decrypt and read an encrypted message. </p>
               <p>Organizations with market power have more control over their destiny than organizations participating in a competitive market. We will also examine how market power is gained, used, and lost in health services markets.</p>
@@ -337,6 +367,7 @@ class Module extends Component {
             </div>
           </div>
               <div className="pageel" tabindex="0">
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <Tabs defaultActiveKey="1" onChange={callback}>
                 <TabPane tab="The Problem" key="1">
                   <p>So far we have seen that sharing keys is the biggest weakness in creating an impenetrable tube. Asymmetrical Encryption does away with the problem of exchanging and storing secret keys, because both sender and receiver use the same set of keys and all keys come in pairs. What one key encrypts, only the other can decrypt. This is one of most common methods of sending encrypted information between two people today on the internet.</p>
@@ -365,6 +396,37 @@ class Module extends Component {
                 <span><Tooltip placement="top" title="Edit Layout"><FontAwesomeIcon icon="pencil-alt" /></Tooltip></span>
               </div>
               </div>
+          <div className="add-menu">
+            <input type="checkbox" />
+            <div className="add-item"><FontAwesomeIcon icon="plus" /></div>
+            <div className="add-menu-items">
+              <div className="action_items">
+                <span><Tooltip placement="top" title="Add Text"><FontAwesomeIcon icon="pencil-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Image"><FontAwesomeIcon icon="image" onClick={this.showModal9} /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Video"><FontAwesomeIcon icon="video"  onClick={this.showModal5} /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Audio"><FontAwesomeIcon icon="volume-up" onClick={this.showModal6} /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Assessment"><FontAwesomeIcon icon="check-square" onClick={this.showModal7} /></Tooltip></span>
+                <span><Tooltip placement="top" title="Add Layout"><FontAwesomeIcon icon="layer-group"  onClick={this.showModal8} /></Tooltip></span>
+              </div>
+            </div>
+          </div>
+              <div className="pageel">
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+            <div className="ease-activity">
+              <div className="fa-icon-activity"><FontAwesomeIcon icon="cloud" /></div> 
+              <div className="ease-activity-info">
+                <span>10 pts</span>
+              </div>
+              <h4>Explore: Creating a One Time Pad</h4>
+              <p>In this lab, you will explore generating a OTP sequence of random values and see what happens when a random number generator is not random at all. </p>
+              <p>The lab environment will open in a modal window. Click OK [in the dialogue box] and follow the prompts to complete each task.</p>
+              <button  onClick={this.showModal3}>Open</button>
+            </div>
+              <div class="edit-menu">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Edit Quiz"><FontAwesomeIcon icon="pencil-alt" /></Tooltip></span>
+              </div>
+            </div>
           <div className="add-menu">
             <input type="checkbox" />
             <div className="add-item"><FontAwesomeIcon icon="plus" /></div>

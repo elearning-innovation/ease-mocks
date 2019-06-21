@@ -199,20 +199,34 @@ e.stopPropagation();
         </div>
       
         <div className="ease-content">
-          <h2>Course Overview</h2>
+          <h2 className="inline-edit" tabindex="1"><span>Course Overview</span> <input type="text" value="Course Overview" /></h2>
           <div className="ease-card">
             <h3>Course Outcomes</h3>
-<Reorder reorderId="my-list" component="ul" className="fa-ul" lock="horizontal">
-              <li><FontAwesomeIcon icon="grip-vertical" className="icon-left hidden" /><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Identify the major uses of cryptography for maintaining the confidentiality, integrity and availability of data both at rest and in flight <FontAwesomeIcon icon="trash-alt" className="icon-right hidden" /></li>
-              <li><FontAwesomeIcon icon="grip-vertical" className="icon-left hidden" /><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Describe how digital signatures and PKI are used to validate the source and integrity of information <FontAwesomeIcon icon="trash-alt" className="icon-right hidden" /></li>
-              <li><FontAwesomeIcon icon="grip-vertical" className="icon-left hidden" /><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Analyze the conflict between data privacy and organizational security as presented by the use of encryption <FontAwesomeIcon icon="trash-alt" className="icon-right hidden" /></li>
-              <li><FontAwesomeIcon icon="grip-vertical" className="icon-left hidden" /><span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Solve decryption problems using a variety of keys. <FontAwesomeIcon icon="trash-alt" className="icon-right hidden" /></li>
-          <div className="add-menu">
-            <div className="add-item"><FontAwesomeIcon icon="plus" /></div>
-          </div>
-
-
-</Reorder>
+            <Reorder reorderId="my-list" component="ul" className="fa-ul" lock="horizontal">
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Identify the major uses of cryptography for maintaining the confidentiality, integrity and availability of data both at rest and in flight 
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Describe how digital signatures and PKI are used to validate the source and integrity of information 
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Analyze the conflict between data privacy and organizational security as presented by the use of encryption 
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              <li className="pageel">
+                <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+                <span class="fa-li" ><FontAwesomeIcon icon="angle-right" /></span>Solve decryption problems using a variety of keys. 
+                <div className="edit-menu"><span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span></div>
+              </li>
+              <div className="add-menu">
+                <div className="add-item"><FontAwesomeIcon icon="plus" /></div>
+              </div>
+            </Reorder>
 
 
 
@@ -234,9 +248,16 @@ e.stopPropagation();
           </div>
 
           <div className="ease-intro">
-            <h3>Course Description</h3>
-            <p>Cryptography plays a vital role in the implementation of confidentiality and integrity in an overall security strategy. As a professional you must be able to explain several types of encryption, how they work, and given a scenario, determine the appropriate method and algorithm to meet the security need. Most technology systems use crypto in one form or another and explaining how these tools utilize the capability and its fit for purpose in an enterprise is key to a successful security program. Professionals also need to describe how cryptography can be utilized to support privacy issues and to ensure trust and how to apply it in the field.</p>
-            <p>“When cryptography is outlawed, bayl bhgynjf jvyy unir cevinpl.”<br /> John Perry Barlow </p>
+          <h3 className="inline-edit" tabindex="1"><span>Course Description</span> <input type="text" value="Course Description" /></h3>
+            <div className="pageel textel">
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
+              <p>Cryptography plays a vital role in the implementation of confidentiality and integrity in an overall security strategy. As a professional you must be able to explain several types of encryption, how they work, and given a scenario, determine the appropriate method and algorithm to meet the security need. Most technology systems use crypto in one form or another and explaining how these tools utilize the capability and its fit for purpose in an enterprise is key to a successful security program. Professionals also need to describe how cryptography can be utilized to support privacy issues and to ensure trust and how to apply it in the field.</p>
+              <p>“When cryptography is outlawed, bayl bhgynjf jvyy unir cevinpl.”<br /> John Perry Barlow </p>
+              <div className="edit-menu">
+                <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
+                <span><Tooltip placement="top" title="Edit Layout"><FontAwesomeIcon icon="pencil-alt" /></Tooltip></span>
+              </div>
+            </div>
           </div>
           <div className="add-menu">
             <input type="checkbox" />
@@ -259,6 +280,7 @@ e.stopPropagation();
             
             <Reorder reorderId="module-list" holdTime={200} component="div" className="ease-module-grid" lock="">
             <div className="ease-module" onClick={this.showModule}>
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <img src={module1} className="respnsive-image" />
               <div className="ease-module-text">
               <h4>Topic 1: Symmetric Encryption</h4>
@@ -272,6 +294,7 @@ e.stopPropagation();
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <img src={module2} className="respnsive-image" />
               <div className="ease-module-text">
               <h4>Topic 2: One-Time Pads</h4>
@@ -285,6 +308,7 @@ e.stopPropagation();
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <img src={module3} className="respnsive-image" />
               <div className="ease-module-text">
               <h4>Topic 3: Asymmetric Encryption</h4>
@@ -298,6 +322,7 @@ e.stopPropagation();
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <img src={module4} className="respnsive-image" />
               <div className="ease-module-text">
                 <h4>Topic 4: Encryption in Use</h4>
@@ -311,6 +336,7 @@ e.stopPropagation();
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <img src={module5} className="respnsive-image" />
               <div className="ease-module-text">
                 <h4>Topic 5: Common Uses of Encryption</h4>
@@ -324,6 +350,7 @@ e.stopPropagation();
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <img src={module6} className="respnsive-image" />
               <div className="ease-module-text">
                 <h4>Bonus: Hacking Lab</h4>
@@ -337,6 +364,7 @@ e.stopPropagation();
             </div>
             
             <div className="ease-module" onClick={this.showModule}>
+              <div className="drag-menu"><FontAwesomeIcon icon="grip-vertical" className="icon-left" /></div>
               <div className="ease-module-text">
                 <h4>Test</h4>
               </div>
@@ -345,6 +373,11 @@ e.stopPropagation();
                 <span><Tooltip placement="top" title="Delete Module"><FontAwesomeIcon icon="trash-alt" /></Tooltip></span>
                 <span><Tooltip placement="top" title="Change Image"><FontAwesomeIcon icon="image" /></Tooltip></span>
                 <span><Tooltip placement="top" title="Module Setting"><FontAwesomeIcon icon="cog" /></Tooltip></span>
+              </div>
+            </div>
+            <div className="ease-module add-module" onClick={this.showModule}>
+              <div className="ease-module-text">
+                <h4><FontAwesomeIcon icon="plus" /> Add Module</h4>
               </div>
             </div>
             
